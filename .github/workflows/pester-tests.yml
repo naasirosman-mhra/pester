@@ -23,6 +23,11 @@ jobs:
         az --version
         java --version
         docker --version
+    - name: List Files
+      run: |
+        ls -R
+        ls -R ./Tests
+        pwd
 
     - name: Run Pester Tests
       run: |
