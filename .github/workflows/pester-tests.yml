@@ -24,4 +24,4 @@ jobs:
 
     - name: Run Pester Tests
       run: |
-        pwsh -File ./trigger/invoke.ps1
+        pwsh -File ./Tests/invoke.ps1
