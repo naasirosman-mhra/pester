@@ -22,7 +22,6 @@ jobs:
         java --version
         docker --version
 
-    # Run Pester Tests using invoke.ps1
     - name: Run Pester Tests
       run: |
-        pwsh -File ./tests/invoke.ps1
+        pwsh -File ./trigger/invoke.ps1
