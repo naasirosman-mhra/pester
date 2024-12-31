@@ -1,0 +1,28 @@
+name: Run Pester Tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  pester-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: install pester
+      run: |
+        pwsh -Command "Install-Module -Name Pester -Force -SkipPublisherCheck -Scope CurrentUser"
+        pwsh -Command "Import-Module Pester"
+
+    - name: Dependency versions
+      run: |
+        node --version
+        npm --version
+        az --version
+        java --version
+        docker --version
+
+    # Run Pester Tests using invoke.ps1
+    - name: Run Pester Tests
+      run: |
+        pwsh -File ./tests/invoke.ps1
