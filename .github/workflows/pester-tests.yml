@@ -6,15 +6,17 @@ on:
 jobs:
   pester-tests:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-    - name: install pester
+
+    - name: Install pester
       run: |
         pwsh -Command "Install-Module -Name Pester -Force -SkipPublisherCheck -Scope CurrentUser"
         pwsh -Command "Import-Module Pester"
 
-    - name: Dependency versions
+    - name: Dependency version
       run: |
         node --version
         npm --version
