@@ -4,7 +4,7 @@ BeforeAll {
     $azVersion = az --version | Out-String
     $javaVersion = java --version | Out-String
     $dockerVersion = docker --version
-    $curlVersion = curl --version | Select-Object -First 1
+    $curlVersion = curl --version | Out-String
     $pwshVersion = $PSVersionTable.PSVersion.ToString()
     $pesterVersion = (Get-Module -Name Pester -ListAvailable).Version.ToString()
     $dotnetVersion = dotnet --version
@@ -39,7 +39,7 @@ Describe "Development Environment Validation" {
             $azVersion | Should -Not -BeNullOrEmpty
         }
         It "Azure CLI should be version" {
-            $azVersion | Should -Match "azure-cli 2\.67\.0"
+            $azVersion | Should -Match "azure-cli\s+2\.67\.0\s+core\s+2\.67\.0"
         }
     }
 
@@ -93,7 +93,7 @@ Describe "Development Environment Validation" {
             $curlVersion | Should -Not -BeNullOrEmpty
         }
         It "curl should be version" {
-            $curlVersion | Should -BeExactly "curl 7.81.0"
+            $curlVersion | Should -Match "curl 7\.81\.0 \(x86_64-pc-linux-gnu\)"
         }
     }
 
