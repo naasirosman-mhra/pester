@@ -23,6 +23,13 @@ jobs:
         az --version
         java --version
         docker --version
+        curl --version | Select-Object -First 1
+        pwsh -Command "(Get-Module -Name Pester -ListAvailable).Version.ToString()"
+        dotnet --version
+        git --version
+        ansible --version | Select-Object -First 1
+        jq --version
+        python3 --version
 
     - name: Run Pester Tests
       run: |
