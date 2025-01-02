@@ -20,11 +20,8 @@ Describe "Development Environment Validation" {
         It "Node should be installed" {
             $nodeVersion | Should -Not -BeNullOrEmpty
         }
-        It "Node should be a valid version" {
-            $nodeVersion | Should -Match "v\d+\.\d+\.\d+"
-        }
-        It "Node should be a specific version" {
-            $nodeVersion | Should -BeExactly "v20.18.1"
+        It "Node should be version" {
+            $nodeVersion | Should -BeExactly "v18.20.5"
         }
     }
 
@@ -32,10 +29,7 @@ Describe "Development Environment Validation" {
         It "npm should be installed" {
             $npmVersion | Should -Not -BeNullOrEmpty
         }
-        It "npm should be a valid version" {
-            $npmVersion | Should -Match "\d+\.\d+\.\d+"
-        }
-        It "npm should be a specific version" {
+        It "npm should be version" {
             $npmVersion | Should -BeExactly "10.8.2"
         }
     }
@@ -44,24 +38,17 @@ Describe "Development Environment Validation" {
         It "Azure CLI should be installed" {
             $azVersion | Should -Not -BeNullOrEmpty
         }
-        It "Azure CLI should be a valid version" {
-            $azVersion | Should -Match "azure-cli\s+\d+\.\d+\.\d+"
-        }
-        It "Azure CLI should be a specific version" {
-            $azVersion | Should -Match "azure-cli\s+2\.67\.0"
+        It "Azure CLI should be version" {
+            $azVersion | Should -Match "azure-cli 2\.67\.0"
         }
     }
-    
 
     Context "Java Environment" {
         It "Java should be installed" {
             $javaVersion | Should -Not -BeNullOrEmpty
         }
-        It "Java should be a valid version" {
-            $javaVersion | Should -Match "openjdk \d+\.\d+\.\d+"
-        }
-        It "Java should be a specific version" {
-            $javaVersion | Should -Match "openjdk 17.0.13" 
+        It "Java should be version" {
+            $javaVersion | Should -Match "openjdk 11\.0\.25"
         }
     }
 
@@ -69,31 +56,26 @@ Describe "Development Environment Validation" {
         It "Docker should be installed" {
             $dockerVersion | Should -Not -BeNullOrEmpty
         }
-        It "Docker should be a valid version" {
-            $dockerVersion | Should -Match "Docker version \d+\.\d+\.\d+"
-        }
-        It "Docker should be a specific version" {
-            $dockerVersion | Should -Match "Docker version 26.1.3" 
+        It "Docker should be version" {
+            $dockerVersion | Should -Match "Docker version 26\.1\.3"
         }
     }
+
     Context "PowerShell Environment" {
         It "PowerShell should be installed" {
             $pwshVersion | Should -Not -BeNullOrEmpty
         }
-        It "PowerShell should be a valid version" {
-            $pwshVersion | Should -Match "^\d+\.\d+\.\d+"
-        }
-        It "PowerShell should be a specific version" {
-            $pwshVersion | Should -Match "^7\." 
+        It "PowerShell should be version" {
+            $pwshVersion | Should -BeExactly "7.4.6"
         }
     }
 
     Context "Pester Environment" {
         It "Pester should be installed" {
-            $pesterVersion | Should -Not -BeNullOrEmpty 
+            $pesterVersion | Should -Not -BeNullOrEmpty
         }
-        It "Pester should be a valid version" {
-            $pesterVersion | Should -Match "^\d+\.\d+\.\d+" 
+        It "Pester should be version" {
+            $pesterVersion | Should -BeExactly "5.6.1"
         }
     }
 
@@ -101,20 +83,17 @@ Describe "Development Environment Validation" {
         It "dotnet should be installed" {
             $dotnetVersion | Should -Not -BeNullOrEmpty
         }
-        It "dotnet should be a valid version" {
-            $dotnetVersion | Should -Match "^\d+\.\d+\.\d+"
-        }
-        It "dotnet should be a specific version" {
-            $dotnetVersion | Should -Match "^7\.|^6\."
+        It "dotnet should be version" {
+            $dotnetVersion | Should -BeExactly "8.0.404"
         }
     }
 
     Context "curl Environment" {
         It "curl should be installed" {
-            $curlVersion | Should -Not -BeNullOrEmpty 
+            $curlVersion | Should -Not -BeNullOrEmpty
         }
-        It "curl should be a valid version" {
-            $curlVersion | Should -Match "curl \d+\.\d+\.\d+" 
+        It "curl should be version" {
+            $curlVersion | Should -BeExactly "curl 7.81.0"
         }
     }
 
@@ -122,8 +101,8 @@ Describe "Development Environment Validation" {
         It "git should be installed" {
             $gitVersion | Should -Not -BeNullOrEmpty
         }
-        It "git should be a valid version" {
-            $gitVersion | Should -Match "git version \d+\.\d+\.\d+"
+        It "git should be version" {
+            $gitVersion | Should -BeExactly "git version 2.47.1"
         }
     }
 
@@ -131,18 +110,17 @@ Describe "Development Environment Validation" {
         It "ansible should be installed" {
             $ansibleVersion | Should -Not -BeNullOrEmpty
         }
-        It "ansible should be a valid version" {
-            $ansibleVersion | Should -Match "ansible \[core \d+\.\d+\.\d+\]" 
+        It "ansible should be version" {
+            $ansibleVersion | Should -Match "ansible \[core 2\.17\.7\]"
         }
     }
 
     Context "jq Environment" {
         It "jq should be installed" {
-            $jqVersion | Should -Not -BeNullOrEmpty 
+            $jqVersion | Should -Not -BeNullOrEmpty
         }
-        It "jq should be a valid version" {
-            $jqVersion = jq --version
-            $jqVersion | Should -Match "jq-\d+\.\d+"
+        It "jq should be exact version" {
+            $jqVersion | Should -BeExactly "jq-1.6"
         }
     }
 
@@ -150,11 +128,8 @@ Describe "Development Environment Validation" {
         It "python should be installed" {
             $pythonVersion | Should -Not -BeNullOrEmpty
         }
-        It "python should be a valid version" {
-            $pythonVersion | Should -Match "Python \d+\.\d+\.\d+"
-        }
-        It "python should be version 3.x" {
-            $pythonVersion | Should -Match "Python 3\."
+        It "python should be exact version" {
+            $pythonVersion | Should -BeExactly "Python 3.10.12"
         }
     }
 }
