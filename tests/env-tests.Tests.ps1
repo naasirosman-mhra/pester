@@ -29,7 +29,7 @@ Describe "Development Environment Validation" {
         It "npm should be installed" {
             $npmVersion | Should -Not -BeNullOrEmpty
         }
-        It "npm should be version" {
+        It "npm should be version 10.8.2" {
             $npmVersion | Should -BeExactly "10.8.2"
         }
     }
@@ -47,7 +47,7 @@ Describe "Development Environment Validation" {
         It "Java should be installed" {
             $javaVersion | Should -Not -BeNullOrEmpty
         }
-        It "Java should be version" {
+        It "Java should be version openjdk 11.0.25 and found" {
             $javaVersion | Should -Match "openjdk 11\.0\.25"
         }
     }
@@ -56,7 +56,7 @@ Describe "Development Environment Validation" {
         It "Docker should be installed" {
             $dockerVersion | Should -Not -BeNullOrEmpty
         }
-        It "Docker should be version" {
+        It "Docker should be version 26.1.3 and found " {
             $dockerVersion | Should -Match "Docker version 26\.1\.3"
         }
     }
@@ -65,7 +65,7 @@ Describe "Development Environment Validation" {
         It "PowerShell should be installed" {
             $pwshVersion | Should -Not -BeNullOrEmpty
         }
-        It "PowerShell should be version" {
+        It "PowerShell should be version 7.4.6 and found" {
             $pwshVersion | Should -BeExactly "7.4.6"
         }
     }
@@ -74,7 +74,7 @@ Describe "Development Environment Validation" {
         It "Pester should be installed" {
             $pesterVersion | Should -Not -BeNullOrEmpty
         }
-        It "Pester should be version" {
+        It "Pester should be version 5.6.1" {
             $pesterVersion | Should -BeExactly "5.6.1"
         }
     }
@@ -83,7 +83,7 @@ Describe "Development Environment Validation" {
         It "dotnet should be installed" {
             $dotnetVersion | Should -Not -BeNullOrEmpty
         }
-        It "dotnet should be version" {
+        It "dotnet should be version 8.0.404" {
             $dotnetVersion | Should -BeExactly "8.0.404"
         }
     }
@@ -92,7 +92,7 @@ Describe "Development Environment Validation" {
         It "curl should be installed" {
             $curlVersion | Should -Not -BeNullOrEmpty
         }
-        It "curl should be version" {
+        It "curl should be version curl 7.81.0 (x86_64-pc-linux-gnu) and found" {
             $curlVersion | Should -Match "curl 7\.81\.0 \(x86_64-pc-linux-gnu\)"
         }
     }
@@ -101,7 +101,7 @@ Describe "Development Environment Validation" {
         It "git should be installed" {
             $gitVersion | Should -Not -BeNullOrEmpty
         }
-        It "git should be version" {
+        It "git should be version 2.47.1 and found " {
             $gitVersion | Should -BeExactly "git version 2.47.1"
         }
     }
@@ -110,7 +110,7 @@ Describe "Development Environment Validation" {
         It "ansible should be installed" {
             $ansibleVersion | Should -Not -BeNullOrEmpty
         }
-        It "ansible should be version" {
+        It "ansible should be version ansible [core 2.17.7] and found " {
             $ansibleVersion | Should -Match "ansible \[core 2\.17\.7\]"
         }
     }
@@ -119,7 +119,7 @@ Describe "Development Environment Validation" {
         It "jq should be installed" {
             $jqVersion | Should -Not -BeNullOrEmpty
         }
-        It "jq should be exact version" {
+        It "jq should be exact version jq-1.6 and found" {
             $jqVersion | Should -BeExactly "jq-1.6"
         }
     }
@@ -128,7 +128,7 @@ Describe "Development Environment Validation" {
         It "python should be installed" {
             $pythonVersion | Should -Not -BeNullOrEmpty
         }
-        It "python should be exact version" {
+        It "python should be exact version Python 3.10.12 and found" {
             $pythonVersion | Should -BeExactly "Python 3.10.12"
         }
     }
