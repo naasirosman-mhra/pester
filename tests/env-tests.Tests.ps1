@@ -18,11 +18,7 @@ Describe "Development Environment Validation" {
 
     Context "Node.js Environment" {
         It "Node should be version v18.20.1" {
-            if ($nodeVersion -eq "v18.20.1") {
-                $nodeVersion | Should -BeExactly "v18.20.5"
-            } else {
-                throw "Expected Node version v18.20.5 but found $nodeVersion"
-            }
+            $nodeVersion | Should -BeExactly "v18.20.1" -Because "Expected Node version v18.20.1 but found $nodeVersion"
         }
     }
 
