@@ -23,17 +23,17 @@ Describe "Development Environment Validation" {
     }
 
     Context "npm Environment" {
-        It "npm should be version 10.8.2 (default)" {
-                $npmVersion | Should -BeExactly "10.8.2"
+        It "npm should be version 10.8.1 (default)" {
+                $npmVersion | Should -BeExactly "10.8.1"
         }
     }
 
     Context "azure CLI" {
-        It "azure CLI should be version 2.67.0 (using if/else)" {
-            if ($azVersion -match "azure-cli\s+2\.67\.0\s+core\s+2\.67\.0") {
-                $azVersion | Should -Match "azure-cli\s+2\.67\.0\s+core\s+2\.67\.0"
+        It "azure CLI should be version 2.68.0 (using if/else)" {
+            if ($azVersion -match "azure-cli\s+2\.67\.0\s+core\s+2\.68\.0") {
+                $azVersion | Should -Match "azure-cli\s+2\.67\.0\s+core\s+2\.68\.0"
             } else {
-                throw "Expected Azure CLI version 2.67.0 but found $azVersion"
+                throw "Expected Azure CLI version 2.68.0 but found $azVersion"
             }
         }
     }
