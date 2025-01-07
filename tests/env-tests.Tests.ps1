@@ -17,23 +17,19 @@ BeforeAll {
 Describe "Development Environment Validation" {
 
     Context "Node.js Environment" {
-        It "Node should be version v18.20.1" {
+        It "Node should be version v18.20.1 (using Because)" {
             $nodeVersion | Should -BeExactly "v18.20.1" -Because "Expected Node version v18.20.1 but found $nodeVersion"
         }
     }
 
     Context "npm Environment" {
-        It "npm should be version 10.8.2" {
-            if ($npmVersion -eq "10.8.2") {
+        It "npm should be version 10.8.2 (default)" {
                 $npmVersion | Should -BeExactly "10.8.2"
-            } else {
-                throw "Expected npm version 10.8.2 but found $npmVersion"
-            }
         }
     }
 
     Context "azure CLI" {
-        It "azure CLI should be version 2.67.0" {
+        It "azure CLI should be version 2.67.0 (using if/else)" {
             if ($azVersion -match "azure-cli\s+2\.67\.0\s+core\s+2\.67\.0") {
                 $azVersion | Should -Match "azure-cli\s+2\.67\.0\s+core\s+2\.67\.0"
             } else {
